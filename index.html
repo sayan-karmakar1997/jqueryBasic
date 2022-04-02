@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Page Title</title>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<input id="first" type="text"></input>
+<br>
+<input id="second" type="text"></input>
+<br>
+<button id="sum" onclick="sum()" class="btn">+</button>
+<br>
+<button id="sub" class="btn">-</button>
+<br>
+<button id="multi" class="btn">*</button>
+<br>
+<button id="div" class="btn">/</button>
+<br>
+<button id="getData">GET</button>
+<script>
+	
+	//$(document).ready(function(){
+	//	alert("welcome")
+	//});
+	function sum()
+	{
+		var a=parseInt($("#first").val());
+		var b=parseInt($("#second").val());
+		var c=a+b;
+		alert(c);
+		
+	}
+	
+	$("#sub").click(function(){
+		var a=parseInt($("#first").val());
+		var b=parseInt($("#second").val());
+		var c=a-b;
+		alert(c);
+	})
+	$(".btn").mouseenter(function(){
+		$(this).css("background-color","red");
+	})
+	
+	$("#getData").click(function(){
+		$.ajax({
+			url : "https://jsonplaceholder.typicode.com/todos/1",
+			type : "GET",
+			success : function(data){
+				console.log(data);
+			},
+			error : function(a,b,c){
+				alert('Something Went Wrong');
+			}
+		});
+	})
+	
+</script>
+</body>
+</html>
